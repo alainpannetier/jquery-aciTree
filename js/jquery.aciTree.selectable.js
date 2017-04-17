@@ -303,7 +303,7 @@
                         // deselect all other (keep the old focus)
                         this._unselect(this.selected().not(item));
                     }
-                    this._selectOne(item);
+                    this._selectOne(item, e);
                 }
                 if (!e.shiftKey) {
                     this._private.spinPoint = item;
@@ -536,7 +536,7 @@
         // select item
         // `options.focus` when set to FALSE will not set the focus
         // `options.oldSelected` will keep the old selected items
-        select: function(item, options) {
+        select: function(item, options, event) {
             options = this._options(options, 'selected', 'selectfail', 'wasselected', item);
             if (this.extSelectable() && this.isItem(item)) {
                 // a way to cancel the operation
