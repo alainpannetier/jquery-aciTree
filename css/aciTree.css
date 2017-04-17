@@ -12,7 +12,7 @@
 
 /* the big loader */
 .aciTree.aciTreeLoad {
-    background:url(../image/load-root.gif) center center no-repeat;
+    background:url("#{resource['images/load-root.gif']}") center center no-repeat;
 }
 
 .aciTree .aciTreeUl {
@@ -36,12 +36,12 @@
 /* the branch line */
 .aciTree .aciTreeBranch {
     padding-left:20px; /* branch indent */
-    background:url(../image/tree-branch.png) left 1px repeat-y;
+    background:url("#{resource['images/tree-branch.png']}") left 1px repeat-y;
 }
 .aciTree[dir=rtl] .aciTreeBranch {
     padding-left:0;
     padding-right:20px; /* branch indent */
-    background:url(../image/tree-branch.png) right 1px repeat-y;
+    background:url("#{resource['images/tree-branch.png']}") right 1px repeat-y;
 }
 /* if the parent is the last child on his level (this is level based; added for #8 levels, if you need more ... add them as needed) */
 .aciTree .aciTreeLi.aciTreeLevel0.aciTreeLast .aciTreeBranch.aciTreeLevel0,
@@ -58,11 +58,11 @@
 }
 /* the branch line behind the button (for the siblings) */
 .aciTree .aciTreeEntry {
-    overflow:hidden;
-    background:url(../image/tree-branch.png) left 1px repeat-y;
+    overflow:visible; /* Alain let container display the horizontal scrollbar */
+    background:url("#{resource['images/tree-branch.png']}") left 1px repeat-y;
 }
 .aciTree[dir=rtl] .aciTreeEntry {
-    background:url(../image/tree-branch.png) right 1px repeat-y;
+    background:url("#{resource['images/tree-branch.png']}") right 1px repeat-y;
 }
 .aciTree .aciTreeLi.aciTreeLast>.aciTreeLine .aciTreeEntry,
 .aciTree.aciTreeNoBranches .aciTreeEntry {
@@ -94,7 +94,7 @@
     padding:0 2px 0 2px;
     border:1px solid transparent;
     height:auto;
-    white-space:normal;
+    white-space:nowrap; /* Alain (was 'normal') */
     cursor:pointer;
     /* margin-right need to be set to icon width [.aciTree .aciTreeIcon = 20] +
     item padding [.aciTree .aciTreeItem = 4] (+ the width of all columns, if any) */
@@ -107,13 +107,14 @@
     margin-left:24px;
 }
 .aciTree .aciTreeText {
-    display:inline;
+    display:inline-block; /* Alain was 'inline' */
     height:auto;
 }
 .aciTree .aciTreeColumn {
     float:right;
     height:auto;
-    white-space:normal;
+    white-space:nowrap; /* Alain was 'normal' */
+    overflow: hidden; /* Alain. added. */
     cursor:default;
 }
 .aciTree[dir=rtl] .aciTreeColumn {
@@ -251,17 +252,17 @@
     margin:0 2px 0 2px;
     padding:0;
     vertical-align:text-bottom;
-    background:url(../image/tree-check-small.png) 0 0 no-repeat;
+    background:url("#{resource['images/tree-check-small.png']}") 0 0 no-repeat;
 }
 .aciTree.aciTreeBig .aciTreeCheck {
-    background:url(../image/tree-check-big.png) 0 0 no-repeat;
+    background:url("#{resource['images/tree-check-big.png']}") 0 0 no-repeat;
 }
 
 .aciTree[dir=rtl] .aciTreeCheck {
-    background:url(../image/tree-check-small-rtl.png) 0 0 no-repeat;
+    background:url("#{resource['images/tree-check-small-rtl.png']}") 0 0 no-repeat;
 }
 .aciTree.aciTreeBig[dir=rtl] .aciTreeCheck {
-    background:url(../image/tree-check-big-rtl.png) 0 0 no-repeat;
+    background:url("#{resource['images/tree-check-big-rtl.png']}") 0 0 no-repeat;
 }
 
 .aciTree .aciTreeCheckbox>.aciTreeLine .aciTreeCheck { background-position:-5px -65px; }
@@ -327,12 +328,12 @@
     width:16px;
     height:16px;
     margin-left:20px;
-    background:#fff url(../image/drag-drop.png) -7px -37px no-repeat;
+    background:#fff url("#{resource['images/drag-drop.png']}") -7px -37px no-repeat;
     border:1px solid #999;
 }
 
 .aciTree[dir=rtl] .aciTreePlaceholder div {
-    background:#fff url(../image/drag-drop-rtl.png) -7px -37px no-repeat;
+    background:#fff url("#{resource['images/drag-drop-rtl.png']}") -7px -37px no-repeat;
 }
 
 .aciTree .aciTreeChild .aciTreePlaceholder div {
@@ -411,31 +412,31 @@
 
 .aciTree .aciTreeButton, .aciTree .aciTreePush {
     width:18px;
-    background:url(../image/tree-small.png) -7px -35px no-repeat;
+    background:url("#{resource['images/tree-small.png']}") -7px -35px no-repeat;
 }
 .aciTree.aciTreeBig .aciTreeButton, .aciTree.aciTreeBig .aciTreePush {
-    background:url(../image/tree-big.png) -7px -35px no-repeat;
+    background:url("#{resource['images/tree-big.png']}") -7px -35px no-repeat;
 }
 
 .aciTree[dir=rtl] .aciTreeButton, .aciTree[dir=rtl] .aciTreePush {
-    background:url(../image/tree-small-rtl.png) -7px -35px no-repeat;
+    background:url("#{resource['images/tree-small-rtl.png']}") -7px -35px no-repeat;
 }
 .aciTree.aciTreeBig[dir=rtl] .aciTreeButton, .aciTree.aciTreeBig[dir=rtl] .aciTreePush {
-    background:url(../image/tree-big-rtl.png) -7px -35px no-repeat;
+    background:url("#{resource['images/tree-big-rtl.png']}") -7px -35px no-repeat;
 }
 
 .aciTree.aciTreeArrow .aciTreeButton, .aciTree.aciTreeArrow .aciTreePush {
-    background:url(../image/tree-arrow-small.png) -7px -35px no-repeat;
+    background:url("#{resource['images/tree-arrow-small.png']}") -7px -35px no-repeat;
 }
 .aciTree.aciTreeBig.aciTreeArrow .aciTreeButton, .aciTree.aciTreeBig.aciTreeArrow .aciTreePush {
-    background:url(../image/tree-arrow-big.png) -7px -35px no-repeat;
+    background:url("#{resource['images/tree-arrow-big.png']}") -7px -35px no-repeat;
 }
 
 .aciTree.aciTreeArrow[dir=rtl] .aciTreeButton, .aciTree.aciTreeArrow[dir=rtl] .aciTreePush {
-    background:url(../image/tree-arrow-small-rtl.png) -7px -35px no-repeat;
+    background:url("#{resource['images/tree-arrow-small-rtl.png']}") -7px -35px no-repeat;
 }
 .aciTree.aciTreeBig.aciTreeArrow[dir=rtl] .aciTreeButton, .aciTree.aciTreeBig.aciTreeArrow[dir=rtl] .aciTreePush {
-    background:url(../image/tree-arrow-big-rtl.png) -7px -35px no-repeat;
+    background:url("#{resource['images/tree-arrow-big-rtl.png']}") -7px -35px no-repeat;
 }
 
 .aciTree.aciTreeNoBranches .aciTreeButton,
@@ -461,7 +462,7 @@
     height:18px;
     left:0;
     top:2px;
-    background:url(../image/load-node.gif) 0 0 no-repeat;
+    background:url("#{resource['images/load-node.gif']}") 0 0 no-repeat;
 }
 .aciTree .aciTreeLoad>.aciTreeLine .aciTreePush {
     position:relative;
@@ -472,30 +473,31 @@
     display:inline-block;
 }
 
-/* tree item icon */
+/* tree item icon - all URLs reworked for JSF resource manager compatibility - Alain*/
 
 .aciTree .aciTreeIcon {
     width:20px;
-    background:url(../image/tree-small.png) 0 0 no-repeat;
+    background:url("#{resource['images/tree-small.png']}") 0 0 no-repeat;
+    margin-right: 4px; /* Added for icons which really fill all 20px width */
 }
 .aciTree.aciTreeBig .aciTreeIcon {
-    background:url(../image/tree-big.png) 0 0 no-repeat;
+    background:url("#{resource['images/tree-big.png']}") 0 0 no-repeat;
 }
 
 .aciTree[dir=rtl] .aciTreeIcon {
     width:16px;
     margin-left:4px;
-    background:url(../image/tree-small-rtl.png) 0 0 no-repeat;
+    background:url("#{resource['images/tree-small-rtl.png']}") 0 0 no-repeat;
 }
 .aciTree.aciTreeBig[dir=rtl] .aciTreeIcon {
-    background:url(../image/tree-big-rtl.png) 0 0 no-repeat;
+    background:url("#{resource['images/tree-big-rtl.png']}") 0 0 no-repeat;
 }
 
-.aciTree.aciTreeArrow .aciTreeIcon { background:url(../image/tree-arrow-small.png) 0 0 no-repeat; }
-.aciTree.aciTreeBig.aciTreeArrow .aciTreeIcon { background:url(../image/tree-arrow-big.png) 0 0 no-repeat; }
+.aciTree.aciTreeArrow .aciTreeIcon { background:url("#{resource['images/tree-arrow-small.png']}") 0 0 no-repeat; }
+.aciTree.aciTreeBig.aciTreeArrow .aciTreeIcon { background:url("#{resource['images/tree-arrow-big.png']}") 0 0 no-repeat; }
 
-.aciTree.aciTreeArrow[dir=rtl] .aciTreeIcon { background:url(../image/tree-arrow-small-rtl.png) 0 0 no-repeat; }
-.aciTree.aciTreeBig.aciTreeArrow[dir=rtl] .aciTreeIcon { background:url(../image/tree-arrow-big-rtl.png) 0 0 no-repeat; }
+.aciTree.aciTreeArrow[dir=rtl] .aciTreeIcon { background:url("#{resource['images/tree-arrow-small-rtl.png']}") 0 0 no-repeat; }
+.aciTree.aciTreeBig.aciTreeArrow[dir=rtl] .aciTreeIcon { background:url("#{resource['images/tree-arrow-big-rtl.png']}") 0 0 no-repeat; }
 
 /* demo file/folder icon class */
 
@@ -534,7 +536,7 @@
 }
 
 /* uncomment below to keep the item in one line and scroll the tree horizontally when needed */
-
+/* I wish I had seen these lines before !!!! (Alain) */
 /*
 
 .aciTree .aciTreeEntry {
@@ -547,3 +549,4 @@
 }
 
 */
+
