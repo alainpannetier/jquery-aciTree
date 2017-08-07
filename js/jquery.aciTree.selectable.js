@@ -303,7 +303,9 @@
                         // deselect all other (keep the old focus)
                         this._unselect(this.selected().not(item));
                     }
+                    /* Alain: was: this._selectOne(item); Now add original click event */
                     this._selectOne(item, e);
+                    /* Alain end */
                 }
                 if (!e.shiftKey) {
                     this._private.spinPoint = item;
@@ -506,13 +508,14 @@
             return last;
         },
         // select one item
-        _selectOne: function(item) {
+        // Alain: added event argument */
+        _selectOne: function(item, e) {
             if (this.isSelected(item)) {
                 this._focusOne(item);
             } else {
                 if (this.isEnabled(item)) {
-                    // select the item
-                    this.select(item);
+                    // select the item (Alain - added null and e args)
+                    this.select(item, null, e);
                 } else {
                     this._focusOne(item);
                 }
@@ -535,9 +538,14 @@
         },
         // select item
         // `options.focus` when set to FALSE will not set the focus
-        // `options.oldSelected` will keep the old selected items
-        select: function(item, options, event) {
+        // `options.oldSelected` will keep the old selected items (Alain added event argument)
+        select: function(item, options, event ) {
             options = this._options(options, 'selected', 'selectfail', 'wasselected', item);
+            /* Alain added */
+            if ( event ) {
+                options.event = event;
+            }
+            /* Alain end */
             if (this.extSelectable() && this.isItem(item)) {
                 // a way to cancel the operation
                 if (!this._trigger(item, 'beforeselect', options)) {

@@ -26,7 +26,7 @@
  *   random_prop: 'random 1'            // sample user defined property (you can have any number defined)
  * }
  *
- * for a inner node (a node that have at least a children under it):
+ * for an inner node (a node that have at least one child):
  *
  * {
  *   id: 'some_folder_ID',              // should be unique item ID
@@ -764,6 +764,9 @@
         // unload item
         // `item` can be NULL to unload the entire tree
         unload: function(item, options) {
+            /* Alain begin: when you unload but the queue is still full of tasks... */
+            this._instance.queue.init();
+            /* Alain - end */
             options = this._options(options, function() {
                 this._loading(item);
                 this._trigger(item, 'unloaded', options);
@@ -1775,7 +1778,7 @@
         },
         // test if is a inner node
         isInode: function(item) {
-            return item && domApi.hasAnyClass(item[0], ['aciTreeInode', 'aciTreeInodeMaybe']);
+            return item && item[0] && domApi.hasAnyClass(item[0], [ "aciTreeInode", "aciTreeInodeMaybe" ]);
         },
         // test if is a leaf node
         isLeaf: function(item) {
